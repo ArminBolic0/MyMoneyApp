@@ -40,6 +40,13 @@
             txtName = new TextBox();
             label4 = new Label();
             label5 = new Label();
+            lblLenghtError = new Label();
+            lblNonCharacterError = new Label();
+            lblSurnameNonCharacterError = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            lblSurnameLenghtError = new Label();
+            lblPasswordError = new Label();
             SuspendLayout();
             // 
             // lblRegister
@@ -119,6 +126,7 @@
             txtPassword.Size = new Size(203, 22);
             txtPassword.TabIndex = 7;
             txtPassword.TextAlign = HorizontalAlignment.Center;
+            txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // label1
             // 
@@ -144,6 +152,7 @@
             txtSurname.Size = new Size(203, 22);
             txtSurname.TabIndex = 6;
             txtSurname.TextAlign = HorizontalAlignment.Center;
+            txtSurname.TextChanged += txtSurname_TextChanged;
             // 
             // txtName
             // 
@@ -156,6 +165,7 @@
             txtName.Size = new Size(203, 22);
             txtName.TabIndex = 6;
             txtName.TextAlign = HorizontalAlignment.Center;
+            txtName.TextChanged += txtName_TextChanged;
             // 
             // label4
             // 
@@ -183,6 +193,90 @@
             label5.TabIndex = 9;
             label5.Text = "name";
             // 
+            // lblLenghtError
+            // 
+            lblLenghtError.AutoSize = true;
+            lblLenghtError.BackColor = Color.Transparent;
+            lblLenghtError.ForeColor = Color.OrangeRed;
+            lblLenghtError.Location = new Point(502, 194);
+            lblLenghtError.Name = "lblLenghtError";
+            lblLenghtError.Size = new Size(215, 15);
+            lblLenghtError.TabIndex = 12;
+            lblLenghtError.Text = "Name must contain atleast 2 characters";
+            lblLenghtError.Visible = false;
+            // 
+            // lblNonCharacterError
+            // 
+            lblNonCharacterError.AutoSize = true;
+            lblNonCharacterError.BackColor = Color.Transparent;
+            lblNonCharacterError.ForeColor = Color.OrangeRed;
+            lblNonCharacterError.Location = new Point(502, 194);
+            lblNonCharacterError.Name = "lblNonCharacterError";
+            lblNonCharacterError.Size = new Size(165, 15);
+            lblNonCharacterError.TabIndex = 12;
+            lblNonCharacterError.Text = "Name can only contain letters";
+            lblNonCharacterError.Visible = false;
+            // 
+            // lblSurnameNonCharacterError
+            // 
+            lblSurnameNonCharacterError.AutoSize = true;
+            lblSurnameNonCharacterError.BackColor = Color.Transparent;
+            lblSurnameNonCharacterError.ForeColor = Color.OrangeRed;
+            lblSurnameNonCharacterError.Location = new Point(502, 240);
+            lblSurnameNonCharacterError.Name = "lblSurnameNonCharacterError";
+            lblSurnameNonCharacterError.Size = new Size(180, 15);
+            lblSurnameNonCharacterError.TabIndex = 12;
+            lblSurnameNonCharacterError.Text = "Surname can only contain letters";
+            lblSurnameNonCharacterError.Visible = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.ForeColor = Color.OrangeRed;
+            label7.Location = new Point(502, 194);
+            label7.Name = "label7";
+            label7.Size = new Size(215, 15);
+            label7.TabIndex = 12;
+            label7.Text = "Name must contain atleast 2 characters";
+            label7.Visible = false;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.ForeColor = Color.OrangeRed;
+            label8.Location = new Point(502, 194);
+            label8.Name = "label8";
+            label8.Size = new Size(165, 15);
+            label8.TabIndex = 12;
+            label8.Text = "Name can only contain letters";
+            label8.Visible = false;
+            // 
+            // lblSurnameLenghtError
+            // 
+            lblSurnameLenghtError.AutoSize = true;
+            lblSurnameLenghtError.BackColor = Color.Transparent;
+            lblSurnameLenghtError.ForeColor = Color.OrangeRed;
+            lblSurnameLenghtError.Location = new Point(502, 240);
+            lblSurnameLenghtError.Name = "lblSurnameLenghtError";
+            lblSurnameLenghtError.Size = new Size(230, 15);
+            lblSurnameLenghtError.TabIndex = 12;
+            lblSurnameLenghtError.Text = "Surname must contain atleast 2 characters";
+            lblSurnameLenghtError.Visible = false;
+            // 
+            // lblPasswordError
+            // 
+            lblPasswordError.AutoSize = true;
+            lblPasswordError.BackColor = Color.Transparent;
+            lblPasswordError.ForeColor = Color.OrangeRed;
+            lblPasswordError.Location = new Point(502, 319);
+            lblPasswordError.Name = "lblPasswordError";
+            lblPasswordError.Size = new Size(300, 45);
+            lblPasswordError.TabIndex = 12;
+            lblPasswordError.Text = "Password lenght must be atleast 8 \r\nand contain atleast one of each\r\n(uppercase letter, lowercase letter, symbol and number)";
+            lblPasswordError.Visible = false;
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -190,6 +284,13 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(label8);
+            Controls.Add(lblSurnameNonCharacterError);
+            Controls.Add(lblPasswordError);
+            Controls.Add(lblSurnameLenghtError);
+            Controls.Add(label7);
+            Controls.Add(lblNonCharacterError);
+            Controls.Add(lblLenghtError);
             Controls.Add(lblRegister);
             Controls.Add(btnRegister);
             Controls.Add(label3);
@@ -221,5 +322,12 @@
         private TextBox txtName;
         private Label label4;
         private Label label5;
+        private Label lblLenghtError;
+        private Label lblNonCharacterError;
+        private Label lblSurnameNonCharacterError;
+        private Label label7;
+        private Label label8;
+        private Label lblSurnameLenghtError;
+        private Label lblPasswordError;
     }
 }
