@@ -31,11 +31,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             label1 = new Label();
-            txdPassword = new TextBox();
+            txtPassword = new TextBox();
             txtEmail = new TextBox();
             label2 = new Label();
             label3 = new Label();
             btnLogin = new Button();
+            lblRegister = new Label();
             SuspendLayout();
             // 
             // label1
@@ -51,26 +52,30 @@
             label1.TabIndex = 0;
             label1.Text = "MyMoney";
             // 
-            // txdPassword
+            // txtPassword
             // 
-            txdPassword.Anchor = AnchorStyles.None;
-            txdPassword.BackColor = SystemColors.Window;
-            txdPassword.ForeColor = SystemColors.Menu;
-            txdPassword.Location = new Point(301, 252);
-            txdPassword.Name = "txdPassword";
-            txdPassword.Size = new Size(203, 23);
-            txdPassword.TabIndex = 1;
+            txtPassword.Anchor = AnchorStyles.None;
+            txtPassword.BackColor = SystemColors.Window;
+            txtPassword.Font = new Font("Leelawadee", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPassword.ForeColor = SystemColors.ControlText;
+            txtPassword.Location = new Point(301, 252);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
+            txtPassword.Size = new Size(203, 22);
+            txtPassword.TabIndex = 1;
+            txtPassword.TextAlign = HorizontalAlignment.Center;
             // 
             // txtEmail
             // 
             txtEmail.Anchor = AnchorStyles.None;
             txtEmail.BackColor = SystemColors.Window;
-            txtEmail.Font = new Font("Millennia", 9F);
+            txtEmail.Font = new Font("Leelawadee", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtEmail.ForeColor = SystemColors.ControlText;
             txtEmail.Location = new Point(301, 195);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(203, 19);
+            txtEmail.Size = new Size(203, 22);
             txtEmail.TabIndex = 1;
+            txtEmail.TextAlign = HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -113,6 +118,19 @@
             btnLogin.Text = "login";
             btnLogin.UseVisualStyleBackColor = false;
             // 
+            // lblRegister
+            // 
+            lblRegister.Anchor = AnchorStyles.None;
+            lblRegister.AutoSize = true;
+            lblRegister.BackColor = Color.Transparent;
+            lblRegister.ForeColor = SystemColors.ActiveCaption;
+            lblRegister.Location = new Point(273, 351);
+            lblRegister.Name = "lblRegister";
+            lblRegister.Size = new Size(271, 15);
+            lblRegister.TabIndex = 4;
+            lblRegister.Text = "You don't have and account? Click here to register";
+            lblRegister.Click += lblRegister_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -120,11 +138,12 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblRegister);
             Controls.Add(btnLogin);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(txtEmail);
-            Controls.Add(txdPassword);
+            Controls.Add(txtPassword);
             Controls.Add(label1);
             Name = "LoginForm";
             StartPosition = FormStartPosition.Manual;
@@ -137,10 +156,11 @@
         #endregion
 
         private Label label1;
-        private TextBox txdPassword;
+        private TextBox txtPassword;
         private TextBox txtEmail;
         private Label label2;
         private Label label3;
         private Button btnLogin;
+        private Label lblRegister;
     }
 }
