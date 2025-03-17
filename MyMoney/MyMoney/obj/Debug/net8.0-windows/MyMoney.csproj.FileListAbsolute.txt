@@ -16,3 +16,4 @@ C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\obj\Debug\net8.0-windows
 C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\obj\Debug\net8.0-windows\ref\MyMoney.dll
 C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\obj\Debug\net8.0-windows\MyMoney.LoginForm.resources
 C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\obj\Debug\net8.0-windows\MyMoney.Properties.Resources.resources
+C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\obj\Debug\net8.0-windows\MyMoney.forms.RegisterForm.resources
