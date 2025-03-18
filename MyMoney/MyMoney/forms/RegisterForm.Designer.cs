@@ -258,9 +258,9 @@
             lblPasswordError.ForeColor = Color.OrangeRed;
             lblPasswordError.Location = new Point(502, 319);
             lblPasswordError.Name = "lblPasswordError";
-            lblPasswordError.Size = new Size(300, 45);
+            lblPasswordError.Size = new Size(281, 45);
             lblPasswordError.TabIndex = 12;
-            lblPasswordError.Text = "Password lenght must be atleast 8 \r\nand contain atleast one of each\r\n(uppercase letter, lowercase letter, symbol and number)";
+            lblPasswordError.Text = "Password must be at least 8 characters long \r\nand contain at least 1 uppercase letter, \r\n1 lowercase letter, 1 number, and 1 special character";
             lblPasswordError.Visible = false;
             // 
             // pictureBox1
