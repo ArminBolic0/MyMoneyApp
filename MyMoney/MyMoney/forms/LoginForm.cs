@@ -9,6 +9,8 @@ namespace MyMoney
         public LoginForm()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
         }
 
         private void lblRegister_Click(object sender, EventArgs e)
