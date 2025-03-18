@@ -30,27 +30,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            label1 = new Label();
             txtPassword = new TextBox();
             txtEmail = new TextBox();
             label2 = new Label();
             label3 = new Label();
             btnLogin = new Button();
             lblRegister = new Label();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            lblEmailError = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Neogrey Medium", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.Highlight;
-            label1.Location = new Point(273, 67);
-            label1.Name = "label1";
-            label1.Size = new Size(258, 48);
-            label1.TabIndex = 0;
-            label1.Text = "MyMoney";
             // 
             // txtPassword
             // 
@@ -76,6 +66,7 @@
             txtEmail.Size = new Size(203, 22);
             txtEmail.TabIndex = 1;
             txtEmail.TextAlign = HorizontalAlignment.Center;
+            txtEmail.TextChanged += txtEmail_TextChanged;
             // 
             // label2
             // 
@@ -131,6 +122,44 @@
             lblRegister.Text = "You don't have and account? Click here to register";
             lblRegister.Click += lblRegister_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(484, 76);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(126, 97);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 15;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Neogrey Medium", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.Highlight;
+            label1.Location = new Point(227, 99);
+            label1.Name = "label1";
+            label1.Size = new Size(265, 48);
+            label1.TabIndex = 14;
+            label1.Text = "MyMoney";
+            // 
+            // lblEmailError
+            // 
+            lblEmailError.Anchor = AnchorStyles.None;
+            lblEmailError.AutoSize = true;
+            lblEmailError.BackColor = Color.Transparent;
+            lblEmailError.ForeColor = Color.OrangeRed;
+            lblEmailError.Location = new Point(511, 199);
+            lblEmailError.Name = "lblEmailError";
+            lblEmailError.Size = new Size(85, 15);
+            lblEmailError.TabIndex = 16;
+            lblEmailError.Text = "Email not valid";
+            lblEmailError.Visible = false;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -138,29 +167,33 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblEmailError);
+            Controls.Add(pictureBox1);
+            Controls.Add(label1);
             Controls.Add(lblRegister);
             Controls.Add(btnLogin);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(txtEmail);
             Controls.Add(txtPassword);
-            Controls.Add(label1);
             Name = "LoginForm";
             StartPosition = FormStartPosition.Manual;
             Text = "MyMoney";
             WindowState = FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private TextBox txtPassword;
         private TextBox txtEmail;
         private Label label2;
         private Label label3;
         private Button btnLogin;
         private Label lblRegister;
+        private PictureBox pictureBox1;
+        private Label label1;
+        private Label lblEmailError;
     }
 }

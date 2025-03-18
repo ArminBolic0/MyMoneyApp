@@ -27,12 +27,12 @@ namespace MyMoney.forms
         {
             if (txtName.Text.Length < 2)
             {
-                txtName.BackColor = Color.OrangeRed;
+                txtName.BackColor = Color.IndianRed;
                 lblLenghtError.Visible = true;
             }
             else if (RegexHelpers.ContainsNonCharacters(txtName))
             {
-                txtName.BackColor = Color.OrangeRed;
+                txtName.BackColor = Color.IndianRed;
                 lblNonCharacterError.Visible = true;
             }
             else
@@ -48,12 +48,12 @@ namespace MyMoney.forms
         {
             if (txtSurname.Text.Length < 2)
             {
-                txtSurname.BackColor = Color.OrangeRed;
+                txtSurname.BackColor = Color.IndianRed;
                 lblSurnameLenghtError.Visible = true;
             }
             else if (RegexHelpers.ContainsNonCharacters(txtSurname))
             {
-                txtSurname.BackColor = Color.OrangeRed;
+                txtSurname.BackColor = Color.IndianRed;
                 lblSurnameNonCharacterError.Visible = true;
             }
             else
@@ -66,15 +66,36 @@ namespace MyMoney.forms
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            if(!RegexHelpers.PasswordValidator(txtPassword))
+            if (!RegexHelpers.PasswordValidator(txtPassword))
             {
-                txtPassword.BackColor = Color.OrangeRed;
+                txtPassword.BackColor = Color.IndianRed;
                 lblPasswordError.Visible = true;
             }
             else
             {
                 txtPassword.BackColor = DefaultBackColor;
                 lblPasswordError.Visible = false;
+            }
+        }
+
+        private void cbVisiblePassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbVisiblePassword.Checked)
+                txtPassword.PasswordChar = '\0';
+            else txtPassword.PasswordChar = '*';
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            if(!RegexHelpers.EmailValidator(txtEmail))
+            {
+                lblEmailError.Visible = true;
+                txtEmail.BackColor = Color.IndianRed;  
+            }
+            else
+            {
+                lblEmailError.Visible = false;
+                txtEmail.BackColor = DefaultBackColor;
             }
         }
     }
