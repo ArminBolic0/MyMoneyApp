@@ -21,5 +21,12 @@ namespace MyMoney.Helpers
             Regex regex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+=\-[\]{};':""\\|,.<>\/?]).+$");
             return regex.IsMatch(password.Text);
         }
+
+        public static bool EmailValidator(TextBox email)
+        {
+            if (email == null) return false;
+            Regex regex = new Regex(@"^[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9-]+\.(com|org|net|edu|gov|io|co)$");
+            return regex.IsMatch(email.Text);
+        }
     }
 }

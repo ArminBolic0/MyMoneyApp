@@ -43,14 +43,18 @@
             lblLenghtError = new Label();
             lblNonCharacterError = new Label();
             lblSurnameNonCharacterError = new Label();
-            label7 = new Label();
-            label8 = new Label();
             lblSurnameLenghtError = new Label();
             lblPasswordError = new Label();
+            pictureBox1 = new PictureBox();
+            cbVisiblePassword = new CheckBox();
+            label6 = new Label();
+            lblEmailError = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lblRegister
             // 
+            lblRegister.Anchor = AnchorStyles.None;
             lblRegister.AutoSize = true;
             lblRegister.BackColor = Color.Transparent;
             lblRegister.ForeColor = SystemColors.ActiveCaption;
@@ -113,6 +117,7 @@
             txtEmail.Size = new Size(203, 22);
             txtEmail.TabIndex = 6;
             txtEmail.TextAlign = HorizontalAlignment.Center;
+            txtEmail.TextChanged += txtEmail_TextChanged;
             // 
             // txtPassword
             // 
@@ -133,11 +138,11 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Neogrey Medium", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Neogrey Medium", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Highlight;
-            label1.Location = new Point(265, 76);
+            label1.Location = new Point(202, 76);
             label1.Name = "label1";
-            label1.Size = new Size(258, 48);
+            label1.Size = new Size(265, 48);
             label1.TabIndex = 5;
             label1.Text = "MyMoney";
             // 
@@ -195,6 +200,7 @@
             // 
             // lblLenghtError
             // 
+            lblLenghtError.Anchor = AnchorStyles.None;
             lblLenghtError.AutoSize = true;
             lblLenghtError.BackColor = Color.Transparent;
             lblLenghtError.ForeColor = Color.OrangeRed;
@@ -207,6 +213,7 @@
             // 
             // lblNonCharacterError
             // 
+            lblNonCharacterError.Anchor = AnchorStyles.None;
             lblNonCharacterError.AutoSize = true;
             lblNonCharacterError.BackColor = Color.Transparent;
             lblNonCharacterError.ForeColor = Color.OrangeRed;
@@ -219,6 +226,7 @@
             // 
             // lblSurnameNonCharacterError
             // 
+            lblSurnameNonCharacterError.Anchor = AnchorStyles.None;
             lblSurnameNonCharacterError.AutoSize = true;
             lblSurnameNonCharacterError.BackColor = Color.Transparent;
             lblSurnameNonCharacterError.ForeColor = Color.OrangeRed;
@@ -229,32 +237,9 @@
             lblSurnameNonCharacterError.Text = "Surname can only contain letters";
             lblSurnameNonCharacterError.Visible = false;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Transparent;
-            label7.ForeColor = Color.OrangeRed;
-            label7.Location = new Point(502, 194);
-            label7.Name = "label7";
-            label7.Size = new Size(215, 15);
-            label7.TabIndex = 12;
-            label7.Text = "Name must contain atleast 2 characters";
-            label7.Visible = false;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.Transparent;
-            label8.ForeColor = Color.OrangeRed;
-            label8.Location = new Point(502, 194);
-            label8.Name = "label8";
-            label8.Size = new Size(165, 15);
-            label8.TabIndex = 12;
-            label8.Text = "Name can only contain letters";
-            label8.Visible = false;
-            // 
             // lblSurnameLenghtError
             // 
+            lblSurnameLenghtError.Anchor = AnchorStyles.None;
             lblSurnameLenghtError.AutoSize = true;
             lblSurnameLenghtError.BackColor = Color.Transparent;
             lblSurnameLenghtError.ForeColor = Color.OrangeRed;
@@ -267,6 +252,7 @@
             // 
             // lblPasswordError
             // 
+            lblPasswordError.Anchor = AnchorStyles.None;
             lblPasswordError.AutoSize = true;
             lblPasswordError.BackColor = Color.Transparent;
             lblPasswordError.ForeColor = Color.OrangeRed;
@@ -277,6 +263,55 @@
             lblPasswordError.Text = "Password lenght must be atleast 8 \r\nand contain atleast one of each\r\n(uppercase letter, lowercase letter, symbol and number)";
             lblPasswordError.Visible = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(458, 51);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(126, 97);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 13;
+            pictureBox1.TabStop = false;
+            // 
+            // cbVisiblePassword
+            // 
+            cbVisiblePassword.Anchor = AnchorStyles.None;
+            cbVisiblePassword.AutoSize = true;
+            cbVisiblePassword.BackColor = Color.Transparent;
+            cbVisiblePassword.Location = new Point(275, 334);
+            cbVisiblePassword.Name = "cbVisiblePassword";
+            cbVisiblePassword.Size = new Size(15, 14);
+            cbVisiblePassword.TabIndex = 14;
+            cbVisiblePassword.UseVisualStyleBackColor = false;
+            cbVisiblePassword.CheckedChanged += cbVisiblePassword_CheckedChanged;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.None;
+            label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
+            label6.ForeColor = SystemColors.MenuBar;
+            label6.Location = new Point(234, 333);
+            label6.Name = "label6";
+            label6.Size = new Size(41, 15);
+            label6.TabIndex = 15;
+            label6.Text = "Visible";
+            // 
+            // lblEmailError
+            // 
+            lblEmailError.Anchor = AnchorStyles.None;
+            lblEmailError.AutoSize = true;
+            lblEmailError.BackColor = Color.Transparent;
+            lblEmailError.ForeColor = Color.OrangeRed;
+            lblEmailError.Location = new Point(502, 286);
+            lblEmailError.Name = "lblEmailError";
+            lblEmailError.Size = new Size(85, 15);
+            lblEmailError.TabIndex = 12;
+            lblEmailError.Text = "Email not valid";
+            lblEmailError.Visible = false;
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -284,11 +319,13 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Controls.Add(label8);
+            Controls.Add(label6);
+            Controls.Add(cbVisiblePassword);
+            Controls.Add(pictureBox1);
             Controls.Add(lblSurnameNonCharacterError);
             Controls.Add(lblPasswordError);
+            Controls.Add(lblEmailError);
             Controls.Add(lblSurnameLenghtError);
-            Controls.Add(label7);
             Controls.Add(lblNonCharacterError);
             Controls.Add(lblLenghtError);
             Controls.Add(lblRegister);
@@ -305,6 +342,8 @@
             Name = "RegisterForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegisterForm";
+            WindowState = FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -325,9 +364,11 @@
         private Label lblLenghtError;
         private Label lblNonCharacterError;
         private Label lblSurnameNonCharacterError;
-        private Label label7;
-        private Label label8;
         private Label lblSurnameLenghtError;
         private Label lblPasswordError;
+        private PictureBox pictureBox1;
+        private CheckBox cbVisiblePassword;
+        private Label label6;
+        private Label lblEmailError;
     }
 }
