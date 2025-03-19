@@ -18,6 +18,7 @@ namespace MyMoney.forms
             InitializeComponent();
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void lblRegister_Click(object sender, EventArgs e)
