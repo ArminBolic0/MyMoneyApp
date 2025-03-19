@@ -186,6 +186,9 @@
             "projectReferences": {
               "C:\\Users\\User\\Desktop\\MyMoneyApp-github\\MyMoney\\Database\\Database.csproj": {
                 "projectPath": "C:\\Users\\User\\Desktop\\MyMoneyApp-github\\MyMoney\\Database\\Database.csproj"
+              },
+              "C:\\Users\\User\\Desktop\\MyMoneyApp-github\\MyMoney\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\MyMoneyApp-github\\MyMoney\\Data\\Data.csproj"
               }
             }
           }
