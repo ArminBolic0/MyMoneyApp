@@ -1,3 +1,5 @@
+using Data;
+using Database;
 using MyMoney.forms;
 using MyMoney.Helpers;
 using System.Security.Cryptography;
@@ -6,6 +8,8 @@ namespace MyMoney
 {
     public partial class LoginForm : Form
     {
+
+        DataBaseContext dbContext = new DataBaseContext();
         public LoginForm()
         {
             InitializeComponent();
@@ -36,6 +40,20 @@ namespace MyMoney
                 lblEmailError.Hide();
                 txtEmail.BackColor = DefaultBackColor;
             }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            User newUser = new()
+            {
+                name = "Test",
+                surname = "Test",
+                email = "test@test.test",
+                password = "testpass"
+            };
+            
+            dbContext.Users.Add(newUser);
+            dbContext.SaveChanges();
         }
     }
 }
