@@ -79,6 +79,7 @@
             btnRegister.TabIndex = 10;
             btnRegister.Text = "register";
             btnRegister.UseVisualStyleBackColor = false;
+            btnRegister.Click += btnRegister_Click;
             // 
             // label3
             // 
