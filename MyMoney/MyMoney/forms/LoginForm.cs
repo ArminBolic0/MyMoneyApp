@@ -10,11 +10,14 @@ namespace MyMoney
     {
 
         DataBaseContext dbContext = new DataBaseContext();
+        List<User> users;
         public LoginForm()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
+            this.FormBorderStyle = FormBorderStyle.None;
+            users = dbContext.Users.ToList();
         }
 
         private void lblRegister_Click(object sender, EventArgs e)
@@ -30,12 +33,7 @@ namespace MyMoney
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
-            if (!RegexHelpers.EmailValidator(txtEmail))
-            {
-                lblEmailError.Visible = true;
-                txtEmail.BackColor = Color.IndianRed;
-            }
-            else
+            if (RegexHelpers.EmailValidator(txtEmail))
             {
                 lblEmailError.Hide();
                 txtEmail.BackColor = DefaultBackColor;
@@ -44,16 +42,35 @@ namespace MyMoney
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            User newUser = new()
+
+            if (!RegexHelpers.EmailValidator(txtEmail))
             {
-                name = "Test",
-                surname = "Test",
-                email = "test@test.test",
-                password = "testpass"
-            };
-            
-            dbContext.Users.Add(newUser);
-            dbContext.SaveChanges();
+                lblEmailError.Visible = true;
+                txtEmail.BackColor = Color.IndianRed;
+                return;
+            }
+            if (txtPassword.Text.Length < 8)
+            {
+                txtPassword.BackColor = Color.IndianRed;
+                return;
+            }
+
+            foreach (var user in users) 
+            {
+                if(user.email == txtEmail.Text)
+                {
+                    if (user.password == txtPassword.Text)
+                    {
+                        lblInvalidPassword.Visible = false;
+                    }
+                    else lblInvalidPassword.Visible = true;
+                }
+            }
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            if(txtPassword.Text.Length > 8) txtPassword.BackColor = DefaultBackColor;
         }
     }
 }

@@ -39,6 +39,7 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             lblEmailError = new Label();
+            lblInvalidPassword = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -54,6 +55,7 @@
             txtPassword.Size = new Size(203, 22);
             txtPassword.TabIndex = 1;
             txtPassword.TextAlign = HorizontalAlignment.Center;
+            txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // txtEmail
             // 
@@ -161,6 +163,19 @@
             lblEmailError.Text = "Email not valid";
             lblEmailError.Visible = false;
             // 
+            // lblInvalidPassword
+            // 
+            lblInvalidPassword.Anchor = AnchorStyles.None;
+            lblInvalidPassword.AutoSize = true;
+            lblInvalidPassword.BackColor = Color.Transparent;
+            lblInvalidPassword.ForeColor = Color.OrangeRed;
+            lblInvalidPassword.Location = new Point(359, 277);
+            lblInvalidPassword.Name = "lblInvalidPassword";
+            lblInvalidPassword.Size = new Size(95, 15);
+            lblInvalidPassword.TabIndex = 16;
+            lblInvalidPassword.Text = "Invalid password";
+            lblInvalidPassword.Visible = false;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -168,6 +183,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblInvalidPassword);
             Controls.Add(lblEmailError);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
@@ -178,9 +194,8 @@
             Controls.Add(txtEmail);
             Controls.Add(txtPassword);
             Name = "LoginForm";
-            StartPosition = FormStartPosition.Manual;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MyMoney";
-            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -196,5 +211,6 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Label lblEmailError;
+        private Label lblInvalidPassword;
     }
 }
