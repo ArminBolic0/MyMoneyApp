@@ -49,6 +49,8 @@
             cbVisiblePassword = new CheckBox();
             label6 = new Label();
             lblEmailError = new Label();
+            lblRegistrationSuccesful = new Label();
+            lblEmailInUse = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -58,7 +60,7 @@
             lblRegister.AutoSize = true;
             lblRegister.BackColor = Color.Transparent;
             lblRegister.ForeColor = SystemColors.ActiveCaption;
-            lblRegister.Location = new Point(265, 407);
+            lblRegister.Location = new Point(266, 413);
             lblRegister.Name = "lblRegister";
             lblRegister.Size = new Size(246, 15);
             lblRegister.TabIndex = 11;
@@ -73,7 +75,7 @@
             btnRegister.BackgroundImageLayout = ImageLayout.Stretch;
             btnRegister.Font = new Font("Neogrey Medium", 15F);
             btnRegister.ForeColor = SystemColors.ButtonFace;
-            btnRegister.Location = new Point(333, 369);
+            btnRegister.Location = new Point(333, 377);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(125, 34);
             btnRegister.TabIndex = 10;
@@ -313,6 +315,33 @@
             lblEmailError.Text = "Email not valid";
             lblEmailError.Visible = false;
             // 
+            // lblRegistrationSuccesful
+            // 
+            lblRegistrationSuccesful.Anchor = AnchorStyles.None;
+            lblRegistrationSuccesful.AutoSize = true;
+            lblRegistrationSuccesful.BackColor = Color.Transparent;
+            lblRegistrationSuccesful.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            lblRegistrationSuccesful.ForeColor = Color.ForestGreen;
+            lblRegistrationSuccesful.Location = new Point(288, 353);
+            lblRegistrationSuccesful.Name = "lblRegistrationSuccesful";
+            lblRegistrationSuccesful.Size = new Size(221, 21);
+            lblRegistrationSuccesful.TabIndex = 12;
+            lblRegistrationSuccesful.Text = "REGISTRATION SUCCESSFUL";
+            lblRegistrationSuccesful.Visible = false;
+            // 
+            // lblEmailInUse
+            // 
+            lblEmailInUse.Anchor = AnchorStyles.None;
+            lblEmailInUse.AutoSize = true;
+            lblEmailInUse.BackColor = Color.Transparent;
+            lblEmailInUse.ForeColor = Color.OrangeRed;
+            lblEmailInUse.Location = new Point(502, 286);
+            lblEmailInUse.Name = "lblEmailInUse";
+            lblEmailInUse.Size = new Size(111, 15);
+            lblEmailInUse.TabIndex = 12;
+            lblEmailInUse.Text = "Email already in use";
+            lblEmailInUse.Visible = false;
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -323,8 +352,10 @@
             Controls.Add(label6);
             Controls.Add(cbVisiblePassword);
             Controls.Add(pictureBox1);
+            Controls.Add(lblEmailInUse);
             Controls.Add(lblSurnameNonCharacterError);
             Controls.Add(lblPasswordError);
+            Controls.Add(lblRegistrationSuccesful);
             Controls.Add(lblEmailError);
             Controls.Add(lblSurnameLenghtError);
             Controls.Add(lblNonCharacterError);
@@ -343,6 +374,7 @@
             Name = "RegisterForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegisterForm";
+            Load += RegisterForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -370,5 +402,7 @@
         private CheckBox cbVisiblePassword;
         private Label label6;
         private Label lblEmailError;
+        private Label lblRegistrationSuccesful;
+        private Label lblEmailInUse;
     }
 }

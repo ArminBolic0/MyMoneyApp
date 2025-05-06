@@ -40,6 +40,7 @@
             label1 = new Label();
             lblEmailError = new Label();
             lblInvalidPassword = new Label();
+            lblAccountExist = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -169,12 +170,25 @@
             lblInvalidPassword.AutoSize = true;
             lblInvalidPassword.BackColor = Color.Transparent;
             lblInvalidPassword.ForeColor = Color.OrangeRed;
-            lblInvalidPassword.Location = new Point(359, 277);
+            lblInvalidPassword.Location = new Point(511, 254);
             lblInvalidPassword.Name = "lblInvalidPassword";
             lblInvalidPassword.Size = new Size(95, 15);
             lblInvalidPassword.TabIndex = 16;
             lblInvalidPassword.Text = "Invalid password";
             lblInvalidPassword.Visible = false;
+            // 
+            // lblAccountExist
+            // 
+            lblAccountExist.Anchor = AnchorStyles.None;
+            lblAccountExist.AutoSize = true;
+            lblAccountExist.BackColor = Color.Transparent;
+            lblAccountExist.ForeColor = Color.OrangeRed;
+            lblAccountExist.Location = new Point(300, 279);
+            lblAccountExist.Name = "lblAccountExist";
+            lblAccountExist.Size = new Size(203, 15);
+            lblAccountExist.TabIndex = 16;
+            lblAccountExist.Text = "Account with that email doesn't exist";
+            lblAccountExist.Visible = false;
             // 
             // LoginForm
             // 
@@ -183,6 +197,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblAccountExist);
             Controls.Add(lblInvalidPassword);
             Controls.Add(lblEmailError);
             Controls.Add(pictureBox1);
@@ -212,5 +227,6 @@
         private Label label1;
         private Label lblEmailError;
         private Label lblInvalidPassword;
+        private Label lblAccountExist;
     }
 }
