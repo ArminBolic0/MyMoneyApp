@@ -9,5 +9,7 @@
         public string password_hash { get; set; }
         public string password_salt { get; set; }
 
+        public ICollection<ExpenseCategory> expenses { get; set; } = new HashSet<ExpenseCategory>();
+
     }
 }

@@ -64,8 +64,12 @@ namespace MyMoney
                     accountExist = true;
                     if (Helpers.PasswordHasher.VerifyPassword(txtPassword.Text, user.password_hash, user.password_salt))
                     {
-                        lblInvalidPassword.Visible = false;
-                        txtPassword.BackColor = Color.IndianRed;
+                        var novaForma = new MainForm(user);
+                        this.Hide();
+                        if(novaForma.ShowDialog() == DialogResult.OK)
+                        {
+                            novaForma.Close();
+                        }
                     }
                     else lblInvalidPassword.Visible = true;
                 }

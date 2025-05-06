@@ -155,3 +155,4 @@ C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\bin\Debug\net8.0-windows
 C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\obj\Debug\net8.0-windows\MyMoney.forms.MainForm.resources
+C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\obj\Debug\net8.0-windows\MyMoney.forms.AddExpenseForm.resources
