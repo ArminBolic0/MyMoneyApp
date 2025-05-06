@@ -20,6 +20,21 @@ namespace Database
             optionsBuilder.UseSqlite(_connectionString);
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Expense>()
+                .HasOne(e => e.expenseCategory)
+                .WithMany()
+                .HasForeignKey(e => e.expenseCategory_id);
+
+            modelBuilder.Entity<Expense>()
+                .HasOne(e => e.user)
+                .WithMany()
+                .HasForeignKey(e => e.user_id);
+        }
+
         public DbSet<User> Users { get; set; }
+        public DbSet<ExpenseCategory> ExpenseCategories { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
     }
 }
