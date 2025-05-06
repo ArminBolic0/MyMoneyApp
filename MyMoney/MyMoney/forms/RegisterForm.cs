@@ -113,12 +113,14 @@ namespace MyMoney.forms
             {
                 txtSurname.BackColor = Color.IndianRed;
                 lblSurnameLenghtError.Visible = true;
+                lblRegistrationSuccesful.Visible = false;
                 return false;
             }
             else if (RegexHelpers.ContainsNonCharacters(txtSurname))
             {
                 txtSurname.BackColor = Color.IndianRed;
                 lblSurnameNonCharacterError.Visible = true;
+                lblRegistrationSuccesful.Visible = false;
                 return false;
             }
             return true;
@@ -126,21 +128,24 @@ namespace MyMoney.forms
 
         private bool emailHandler()
         {
+            lblEmailInUse.Visible = false;
             if (!RegexHelpers.EmailValidator(txtEmail))
             {
                 lblEmailError.Visible = true;
                 txtEmail.BackColor = Color.IndianRed;
+                lblRegistrationSuccesful.Visible = false;
                 return false;
             }
             return true;
         }
-        
+
         private bool passwordHandler()
         {
             if (!RegexHelpers.PasswordValidator(txtPassword))
             {
                 txtPassword.BackColor = Color.IndianRed;
                 lblPasswordError.Visible = true;
+                lblRegistrationSuccesful.Visible = false;
                 return false;
             }
             return true;
@@ -148,7 +153,7 @@ namespace MyMoney.forms
 
         private bool databaseCheck() // Checks if email is already in use by another account
         {
-            foreach(User user in users)
+            foreach (User user in users)
             {
                 if (user.email == txtEmail.Text) return false;
             }
@@ -161,19 +166,34 @@ namespace MyMoney.forms
             if (!surnameHandler()) return;
             if (!emailHandler()) return;
             if (!passwordHandler()) return;
-            if(databaseCheck())
+            if (databaseCheck())
             {
+                var (hash, salt) = Helpers.PasswordHasher.HashPassword(txtPassword.Text);
                 User newUser = new()
                 {
                     name = txtName.Text,
                     surname = txtSurname.Text,
                     email = txtEmail.Text,
-                    password = txtPassword.Text
+                    password_hash = hash,
+                    password_salt = salt
                 };
 
                 dbContext.Users.Add(newUser);
                 dbContext.SaveChanges();
+                lblRegistrationSuccesful.Visible = true;
+                return;
             }
+            else
+            {
+                lblEmailInUse.Visible = true;
+            }
+
+            lblRegistrationSuccesful.Visible = false;
+        }
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

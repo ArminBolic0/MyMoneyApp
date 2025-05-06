@@ -29,6 +29,8 @@ namespace MyMoney
                 frmRegister.Close();
             }
             this.Show();
+            dbContext = new DataBaseContext();
+            users = dbContext.Users.ToList();
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
@@ -42,7 +44,7 @@ namespace MyMoney
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            bool accountExist = false;
             if (!RegexHelpers.EmailValidator(txtEmail))
             {
                 lblEmailError.Visible = true;
@@ -55,17 +57,21 @@ namespace MyMoney
                 return;
             }
 
-            foreach (var user in users) 
+            foreach (var user in users)
             {
-                if(user.email == txtEmail.Text)
+                if (user.email == txtEmail.Text)
                 {
-                    if (user.password == txtPassword.Text)
+                    accountExist = true;
+                    if (Helpers.PasswordHasher.VerifyPassword(txtPassword.Text, user.password_hash, user.password_salt))
                     {
                         lblInvalidPassword.Visible = false;
+                        txtPassword.BackColor = Color.IndianRed;
                     }
                     else lblInvalidPassword.Visible = true;
                 }
             }
+            if (!accountExist) lblAccountExist.Visible = true;
+            else lblAccountExist.Visible = false;
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
