@@ -51,6 +51,7 @@
             lblEmailError = new Label();
             lblRegistrationSuccesful = new Label();
             lblEmailInUse = new Label();
+            btnExit = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -59,6 +60,7 @@
             lblRegister.Anchor = AnchorStyles.None;
             lblRegister.AutoSize = true;
             lblRegister.BackColor = Color.Transparent;
+            lblRegister.Cursor = Cursors.Hand;
             lblRegister.ForeColor = SystemColors.ActiveCaption;
             lblRegister.Location = new Point(266, 413);
             lblRegister.Name = "lblRegister";
@@ -66,6 +68,8 @@
             lblRegister.TabIndex = 11;
             lblRegister.Text = "You already have account? Click here to login";
             lblRegister.Click += lblRegister_Click;
+            lblRegister.MouseLeave += lblRegister_MouseLeave;
+            lblRegister.MouseHover += lblRegister_MouseHover;
             // 
             // btnRegister
             // 
@@ -73,6 +77,7 @@
             btnRegister.BackColor = Color.Transparent;
             btnRegister.BackgroundImage = (Image)resources.GetObject("btnRegister.BackgroundImage");
             btnRegister.BackgroundImageLayout = ImageLayout.Stretch;
+            btnRegister.Cursor = Cursors.Hand;
             btnRegister.Font = new Font("Neogrey Medium", 15F);
             btnRegister.ForeColor = SystemColors.ButtonFace;
             btnRegister.Location = new Point(333, 377);
@@ -319,14 +324,14 @@
             // 
             lblRegistrationSuccesful.Anchor = AnchorStyles.None;
             lblRegistrationSuccesful.AutoSize = true;
-            lblRegistrationSuccesful.BackColor = Color.Transparent;
+            lblRegistrationSuccesful.BackColor = SystemColors.GradientActiveCaption;
             lblRegistrationSuccesful.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             lblRegistrationSuccesful.ForeColor = Color.ForestGreen;
-            lblRegistrationSuccesful.Location = new Point(288, 353);
+            lblRegistrationSuccesful.Location = new Point(179, 355);
             lblRegistrationSuccesful.Name = "lblRegistrationSuccesful";
-            lblRegistrationSuccesful.Size = new Size(221, 21);
+            lblRegistrationSuccesful.Size = new Size(434, 21);
             lblRegistrationSuccesful.TabIndex = 12;
-            lblRegistrationSuccesful.Text = "REGISTRATION SUCCESSFUL";
+            lblRegistrationSuccesful.Text = "REGISTRATION SUCCESSFUL,  NAVIGATE TO LOGIN PAGE";
             lblRegistrationSuccesful.Visible = false;
             // 
             // lblEmailInUse
@@ -342,6 +347,21 @@
             lblEmailInUse.Text = "Email already in use";
             lblEmailInUse.Visible = false;
             // 
+            // btnExit
+            // 
+            btnExit.BackColor = Color.LimeGreen;
+            btnExit.BackgroundImage = Properties.Resources.login_register_background;
+            btnExit.Cursor = Cursors.Hand;
+            btnExit.Font = new Font("Yu Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExit.ForeColor = SystemColors.ButtonFace;
+            btnExit.Location = new Point(756, 12);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(32, 32);
+            btnExit.TabIndex = 16;
+            btnExit.Text = "X";
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -349,6 +369,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnExit);
             Controls.Add(label6);
             Controls.Add(cbVisiblePassword);
             Controls.Add(pictureBox1);
@@ -404,5 +425,6 @@
         private Label lblEmailError;
         private Label lblRegistrationSuccesful;
         private Label lblEmailInUse;
+        private Button btnExit;
     }
 }

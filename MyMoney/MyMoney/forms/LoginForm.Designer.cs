@@ -41,6 +41,7 @@
             lblEmailError = new Label();
             lblInvalidPassword = new Label();
             lblAccountExist = new Label();
+            btnExit = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -103,6 +104,7 @@
             btnLogin.BackColor = Color.Transparent;
             btnLogin.BackgroundImage = (Image)resources.GetObject("btnLogin.BackgroundImage");
             btnLogin.BackgroundImageLayout = ImageLayout.Stretch;
+            btnLogin.Cursor = Cursors.Hand;
             btnLogin.Font = new Font("Neogrey Medium", 15F);
             btnLogin.ForeColor = SystemColors.ButtonFace;
             btnLogin.Location = new Point(353, 302);
@@ -118,6 +120,7 @@
             lblRegister.Anchor = AnchorStyles.None;
             lblRegister.AutoSize = true;
             lblRegister.BackColor = Color.Transparent;
+            lblRegister.Cursor = Cursors.Hand;
             lblRegister.ForeColor = SystemColors.ActiveCaption;
             lblRegister.Location = new Point(273, 351);
             lblRegister.Name = "lblRegister";
@@ -125,6 +128,8 @@
             lblRegister.TabIndex = 4;
             lblRegister.Text = "You don't have and account? Click here to register";
             lblRegister.Click += lblRegister_Click;
+            lblRegister.MouseLeave += lblRegister_MouseLeave;
+            lblRegister.MouseHover += lblRegister_MouseHover;
             // 
             // pictureBox1
             // 
@@ -190,6 +195,21 @@
             lblAccountExist.Text = "Account with that email doesn't exist";
             lblAccountExist.Visible = false;
             // 
+            // btnExit
+            // 
+            btnExit.BackColor = Color.LimeGreen;
+            btnExit.BackgroundImage = Properties.Resources.login_register_background;
+            btnExit.Cursor = Cursors.Hand;
+            btnExit.Font = new Font("Yu Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExit.ForeColor = SystemColors.ButtonFace;
+            btnExit.Location = new Point(756, 12);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(32, 32);
+            btnExit.TabIndex = 17;
+            btnExit.Text = "X";
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -197,6 +217,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnExit);
             Controls.Add(lblAccountExist);
             Controls.Add(lblInvalidPassword);
             Controls.Add(lblEmailError);
@@ -228,5 +249,6 @@
         private Label lblEmailError;
         private Label lblInvalidPassword;
         private Label lblAccountExist;
+        private Button btnExit;
     }
 }

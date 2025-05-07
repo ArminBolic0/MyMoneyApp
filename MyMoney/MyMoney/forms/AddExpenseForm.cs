@@ -20,23 +20,28 @@ namespace MyMoney.forms
         {
             InitializeComponent();
             currentUser = user;
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void AddExpenseForm_Load(object sender, EventArgs e)
         {
-            cbExpenseCategory.DataSource = dbContext.ExpenseCategories.ToList();
-            cbExpenseCategory.ValueMember = "id";
-            cbExpenseCategory.DisplayMember = "category_name";
+            setupForm();
         }
 
         private void btnAddExpense_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtDescription.Text))
+            {
+                txtDescription.BackColor = Color.IndianRed;
+                return;
+            }
             ExpenseCategory eCategory = cbExpenseCategory.SelectedItem as ExpenseCategory;
             dbContext.Users.Attach(currentUser);
             Expense newExpense = new()
             {
                 amount = (float)numAmount.Value,
                 user = currentUser,
+                description = txtDescription.Text,
                 expenseCategory_id = eCategory.id,
                 expenseCategory = eCategory
             };
@@ -45,5 +50,22 @@ namespace MyMoney.forms
             Close();
             return;
         }
+
+        private void setupForm()
+        {
+            cbExpenseCategory.DataSource = dbContext.ExpenseCategories.ToList();
+            cbExpenseCategory.ValueMember = "id";
+            cbExpenseCategory.DisplayMember = "category_name";
+            cbExpenseCategory.SelectedIndex = 0;
+            Helpers.VisualStyle.btnStyle(btnAddExpense);
+            Helpers.VisualStyle.cbStyle(cbExpenseCategory);
+            Helpers.VisualStyle.numStyle(numAmount);
+        }
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(txtDescription.Text)) txtDescription.BackColor = Color.IndianRed;
+            else txtDescription.BackColor = SystemColors.Window;
+        }
+
     }
 }

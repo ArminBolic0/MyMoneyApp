@@ -28,9 +28,16 @@ namespace MyMoney
             {
                 frmRegister.Close();
             }
-            this.Show();
-            dbContext = new DataBaseContext();
-            users = dbContext.Users.ToList();
+            if (!this.IsDisposed && !Application.MessageLoop)
+            {
+                return;
+            }
+            if (!this.IsDisposed)
+            {
+                this.Show();
+                dbContext = new DataBaseContext();
+                users = dbContext.Users.ToList();
+            }
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
@@ -66,7 +73,7 @@ namespace MyMoney
                     {
                         var novaForma = new MainForm(user);
                         this.Hide();
-                        if(novaForma.ShowDialog() == DialogResult.OK)
+                        if (novaForma.ShowDialog() == DialogResult.OK)
                         {
                             novaForma.Close();
                         }
@@ -80,7 +87,22 @@ namespace MyMoney
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            if(txtPassword.Text.Length > 8) txtPassword.BackColor = DefaultBackColor;
+            if (txtPassword.Text.Length > 8) txtPassword.BackColor = DefaultBackColor;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void lblRegister_MouseHover(object sender, EventArgs e)
+        {
+            lblRegister.ForeColor = Color.White;
+        }
+
+        private void lblRegister_MouseLeave(object sender, EventArgs e)
+        {
+            lblRegister.ForeColor = SystemColors.ActiveCaption;
         }
     }
 }
