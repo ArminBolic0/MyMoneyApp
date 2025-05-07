@@ -4,6 +4,9 @@
     <Compile Update="forms\AddExpenseForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\EditExpenseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -44,7 +44,6 @@ namespace MyMoney.forms
                 newForm.Close();
             }
             updateData();
-            updateChart();
         }
 
         private float calculateExpenses()
@@ -62,9 +61,10 @@ namespace MyMoney.forms
                 Expense expense = row.DataBoundItem as Expense;
                 ExpenseCategory eCategory = dbContext.ExpenseCategories.Where(e => e.id == expense.expenseCategory_id).FirstOrDefault();
                 row.Cells[0].Value = eCategory.category_name;
-                row.Cells[1].Value = $"{expense.amount}$";
+                row.Cells[1].Value = expense.amount;
                 row.Cells[2].Value = expense.description;
             }
+            updateChart();
         }
 
 
@@ -85,9 +85,9 @@ namespace MyMoney.forms
             float medicalExpenses = dbContext.Expenses.Where(e => e.user_id == currentUser.Id).Where(e => e.expenseCategory_id == 3).Sum(e => e.amount);
             float rentExpenses = dbContext.Expenses.Where(e => e.user_id == currentUser.Id).Where(e => e.expenseCategory_id == 4).Sum(e => e.amount);
             float insuranceExpenses = dbContext.Expenses.Where(e => e.user_id == currentUser.Id).Where(e => e.expenseCategory_id == 5).Sum(e => e.amount);
-            float entertainmentExpenses = dbContext.Expenses.Where(e => e.user_id == currentUser.Id).Where(e => e.expenseCategory_id == 7).Sum(e => e.amount);
-            float savingsExpenses = dbContext.Expenses.Where(e => e.user_id == currentUser.Id).Where(e => e.expenseCategory_id == 8).Sum(e => e.amount);
-            float investmentExpenses = dbContext.Expenses.Where(e => e.user_id == currentUser.Id).Where(e => e.expenseCategory_id == 9).Sum(e => e.amount);
+            float entertainmentExpenses = dbContext.Expenses.Where(e => e.user_id == currentUser.Id).Where(e => e.expenseCategory_id == 6).Sum(e => e.amount);
+            float savingsExpenses = dbContext.Expenses.Where(e => e.user_id == currentUser.Id).Where(e => e.expenseCategory_id == 7).Sum(e => e.amount);
+            float investmentExpenses = dbContext.Expenses.Where(e => e.user_id == currentUser.Id).Where(e => e.expenseCategory_id == 8).Sum(e => e.amount);
             float otherExpenses = dbContext.Expenses.Where(e => e.user_id == currentUser.Id).Where(e => e.expenseCategory_id == 0).Sum(e => e.amount);
             txtGroceries.Width = (int)Math.Round((groceriesExpenses / totalExpenses) * 300);
             txtTransportation.Width = (int)Math.Round((transportationExpenses / totalExpenses) * 300);
@@ -103,6 +103,27 @@ namespace MyMoney.forms
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void dgvExpenses_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            DataGridViewRow row = dgvExpenses.Rows[e.RowIndex];
+            Expense expense = row.DataBoundItem as Expense;
+            var editForm = new EditExpenseForm(currentUser, expense);
+            if (editForm.ShowDialog() == DialogResult.OK)
+            {
+                editForm.Close();
+            }
+            dbContext = new DataBaseContext();
+            int selectedIndex = dgvExpenses.CurrentRow?.Index ?? -1;
+            updateData();
+
+            if (selectedIndex >= 0 && selectedIndex < dgvExpenses.Rows.Count)
+            {
+                dgvExpenses.CurrentCell = dgvExpenses.Rows[selectedIndex].Cells[0];
+                dgvExpenses.Rows[selectedIndex].Selected = true;
+            }
         }
     }
 }
