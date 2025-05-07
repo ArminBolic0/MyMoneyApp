@@ -166,6 +166,7 @@ namespace MyMoney.forms
             if (!surnameHandler()) return;
             if (!emailHandler()) return;
             if (!passwordHandler()) return;
+            users = dbContext.Users.ToList();
             if (databaseCheck())
             {
                 var (hash, salt) = Helpers.PasswordHasher.HashPassword(txtPassword.Text);
@@ -194,6 +195,21 @@ namespace MyMoney.forms
         private void RegisterForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void lblRegister_MouseHover(object sender, EventArgs e)
+        {
+            lblRegister.ForeColor = Color.White;
+        }
+
+        private void lblRegister_MouseLeave(object sender, EventArgs e)
+        {
+            lblRegister.ForeColor = SystemColors.ActiveCaption;
         }
     }
 }
