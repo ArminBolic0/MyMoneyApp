@@ -35,9 +35,6 @@
             lblWelcome = new Label();
             lblTotalExpenses = new Label();
             dgvExpenses = new DataGridView();
-            Expense = new DataGridViewTextBoxColumn();
-            amount = new DataGridViewTextBoxColumn();
-            description = new DataGridViewTextBoxColumn();
             label1 = new Label();
             Groceries = new Label();
             label2 = new Label();
@@ -57,6 +54,9 @@
             txtSavings = new TextBox();
             txtOther = new TextBox();
             txtInvestment = new TextBox();
+            Expense = new DataGridViewTextBoxColumn();
+            amount = new DataGridViewTextBoxColumn();
+            description = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvExpenses).BeginInit();
             SuspendLayout();
             // 
@@ -109,31 +109,7 @@
             dgvExpenses.RowHeadersVisible = false;
             dgvExpenses.Size = new Size(390, 308);
             dgvExpenses.TabIndex = 3;
-            // 
-            // Expense
-            // 
-            Expense.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Font = new Font("Myanmar Text", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Expense.DefaultCellStyle = dataGridViewCellStyle1;
-            Expense.HeaderText = "Expense";
-            Expense.Name = "Expense";
-            Expense.ReadOnly = true;
-            // 
-            // amount
-            // 
-            dataGridViewCellStyle2.Font = new Font("Myanmar Text", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            amount.DefaultCellStyle = dataGridViewCellStyle2;
-            amount.HeaderText = "Amount($)";
-            amount.Name = "amount";
-            amount.ReadOnly = true;
-            // 
-            // description
-            // 
-            dataGridViewCellStyle3.Font = new Font("Myanmar Text", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            description.DefaultCellStyle = dataGridViewCellStyle3;
-            description.HeaderText = "Description";
-            description.Name = "description";
-            description.ReadOnly = true;
+            dgvExpenses.CellDoubleClick += dgvExpenses_CellDoubleClick;
             // 
             // label1
             // 
@@ -345,6 +321,31 @@
             txtInvestment.Size = new Size(100, 12);
             txtInvestment.TabIndex = 5;
             // 
+            // Expense
+            // 
+            Expense.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.Font = new Font("Myanmar Text", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Expense.DefaultCellStyle = dataGridViewCellStyle1;
+            Expense.HeaderText = "Expense";
+            Expense.Name = "Expense";
+            Expense.ReadOnly = true;
+            // 
+            // amount
+            // 
+            dataGridViewCellStyle2.Font = new Font("Myanmar Text", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            amount.DefaultCellStyle = dataGridViewCellStyle2;
+            amount.HeaderText = "Amount($)";
+            amount.Name = "amount";
+            amount.ReadOnly = true;
+            // 
+            // description
+            // 
+            dataGridViewCellStyle3.Font = new Font("Myanmar Text", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            description.DefaultCellStyle = dataGridViewCellStyle3;
+            description.HeaderText = "Description";
+            description.Name = "description";
+            description.ReadOnly = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -391,9 +392,6 @@
         private Label lblWelcome;
         private Label lblTotalExpenses;
         private DataGridView dgvExpenses;
-        private DataGridViewTextBoxColumn Expense;
-        private DataGridViewTextBoxColumn amount;
-        private DataGridViewTextBoxColumn description;
         private Label label1;
         private Label Groceries;
         private Label label2;
@@ -413,5 +411,8 @@
         private TextBox txtSavings;
         private TextBox txtOther;
         private TextBox txtInvestment;
+        private DataGridViewTextBoxColumn Expense;
+        private DataGridViewTextBoxColumn amount;
+        private DataGridViewTextBoxColumn description;
     }
 }

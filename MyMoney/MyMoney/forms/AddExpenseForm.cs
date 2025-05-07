@@ -63,9 +63,13 @@ namespace MyMoney.forms
         }
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(txtDescription.Text)) txtDescription.BackColor = Color.IndianRed;
+            if (string.IsNullOrWhiteSpace(txtDescription.Text)) txtDescription.BackColor = Color.IndianRed;
             else txtDescription.BackColor = SystemColors.Window;
         }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

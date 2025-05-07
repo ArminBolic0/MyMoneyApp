@@ -159,3 +159,4 @@ C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\obj\Debug\net8.0-windows
 C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\bin\Debug\net8.0-windows\LiveCharts.dll
 C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\bin\Debug\net8.0-windows\LiveCharts.WinForms.dll
 C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\bin\Debug\net8.0-windows\LiveCharts.Wpf.dll
+C:\Users\User\Desktop\MyMoneyApp-github\MyMoney\MyMoney\obj\Debug\net8.0-windows\MyMoney.forms.EditExpenseForm.resources
