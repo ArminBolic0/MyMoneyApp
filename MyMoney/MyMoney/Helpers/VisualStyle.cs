@@ -14,13 +14,14 @@ namespace MyMoney.Helpers
             dgv.BorderStyle = BorderStyle.None;
             dgv.RowHeadersVisible = false;
             dgv.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-            dgv.DefaultCellStyle.ForeColor = Color.Black;
+            dgv.DefaultCellStyle.ForeColor = Color.White;
             dgv.DefaultCellStyle.BackColor = Color.White;
             dgv.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
             dgv.DefaultCellStyle.SelectionForeColor = Color.LightCyan;
-            dgv.DefaultCellStyle.ForeColor = Color.LightSkyBlue;
+            dgv.DefaultCellStyle.ForeColor = Color.CadetBlue;
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSlateGray;
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.DarkBlue;
             dgv.EnableHeadersVisualStyles = false;
             dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
