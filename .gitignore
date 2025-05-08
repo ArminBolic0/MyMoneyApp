@@ -18,6 +18,8 @@ obj/
 .vs/
 .vscode/
 .idea/
+*.wsuo
+DocumentLayout.json
 
 # Ignore any other temporary files
 *.log
