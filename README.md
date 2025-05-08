@@ -16,12 +16,12 @@ A simple **Finance Manager App** built with **WinForms** in **C#**. This app all
 - 💸 **Track Income & Expenses**  
   Add, view, and manage your income and expenses.
 
-  ![Screenshot_16](https://github.com/user-attachments/assets/d9bbd94b-3bb8-4232-b7ff-34a3bc352dc3)
-  ![Screenshot_15](https://github.com/user-attachments/assets/1269e9ce-fae3-459f-b34a-0306ec80fb6c)
+![Screenshot_16](https://github.com/user-attachments/assets/d9bbd94b-3bb8-4232-b7ff-34a3bc352dc3)
+![Screenshot_15](https://github.com/user-attachments/assets/1269e9ce-fae3-459f-b34a-0306ec80fb6c)
 
 - 📊 **Data Visualization**  
   Charts help visualize your financial activity over time.
-  ![Screenshot_13](https://github.com/user-attachments/assets/5747ef25-0cf8-4656-ab80-a9026a1238b3)
+![Screenshot_13](https://github.com/user-attachments/assets/5747ef25-0cf8-4656-ab80-a9026a1238b3)
 
 - 🗃️ **Local SQLite Database**  
   Self-contained storage—no external setup required.
